@@ -50,7 +50,7 @@ class ContentHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               VerticalIconButton(icon: Icons.add, title: 'List', onTap: () => print('my list')),
-              _PlayButton(),
+              const _PlayButton(),
               VerticalIconButton(icon: Icons.info_outline, title: 'Info', onTap: () => print('info'))
             ],
           ),
@@ -66,11 +66,23 @@ class _PlayButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      constraints: const BoxConstraints(minWidth: 120.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8.0),
+        color: Colors.white,
+      ),
       margin: const EdgeInsets.fromLTRB(15.0, 5.0, 20.0, 5.0),
       child: TextButton.icon(
-        icon: Icon(Icons.play_arrow, size: 30.0,),
+        icon: const Icon(Icons.play_arrow, size: 30.0, color: Colors.black,),
         onPressed: () => print('play'),
-        label: const Text('Play', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),),
+        label: const Text(
+          'Play',
+          style: TextStyle(
+              fontSize: 16.0,
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
     );
   }
